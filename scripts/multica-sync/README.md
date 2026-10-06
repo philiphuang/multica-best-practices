@@ -37,6 +37,12 @@ cp squad-bootstrap.example.json squad-bootstrap.json
 python bootstrap_squad.py --workspace 100 --config squad-bootstrap.json
 ```
 
+推荐直接使用 reviewed 双层门禁主流程配置（squad instructions 指向 `software-development-reviewed`）：
+
+```powershell
+python bootstrap_squad.py --workspace 100 --config squad-bootstrap-reviewed.json
+```
+
 常用变体 / variants：
 
 ```powershell
