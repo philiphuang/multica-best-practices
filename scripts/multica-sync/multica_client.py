@@ -145,7 +145,8 @@ class MulticaClient:
             "instructions": instructions,
             "conversation_starters": conversation_starters or [],
         }
-        return self._request("PUT", f"/api/agents/{agent_id}", workspace=workspace, body=body)
+        data, _ = self._request("PUT", f"/api/agents/{agent_id}", workspace=workspace, body=body)
+        return data
 
     def list_agent_skills(self, workspace: str, agent_id: str):
         data, _ = self._request("GET", f"/api/agents/{agent_id}/skills", workspace=workspace)
@@ -157,10 +158,12 @@ class MulticaClient:
         return data or []
 
     def create_skill(self, workspace: str, payload: dict):
-        return self._request("POST", "/api/skills", workspace=workspace, body=payload)
+        data, _ = self._request("POST", "/api/skills", workspace=workspace, body=payload)
+        return data
 
     def update_skill(self, workspace: str, skill_id: str, payload: dict):
-        return self._request("PUT", f"/api/skills/{skill_id}", workspace=workspace, body=payload)
+        data, _ = self._request("PUT", f"/api/skills/{skill_id}", workspace=workspace, body=payload)
+        return data
 
     # --- Squads ---
     def get_squad(self, workspace: str, squad_id: str):
